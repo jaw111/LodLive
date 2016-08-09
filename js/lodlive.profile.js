@@ -545,6 +545,12 @@ $.jStorage.set('profile', {
 			description : {
 				en : "Organisation for Economic Co-operation and Development Linked Data: The mission of OECD is to promote policies that will improve the economic and social well-being of people around the world"
 			}
+		},
+		"http://brk.basisregistraties.overheid.nl" : {
+			endpoint : "https://data.pdok.nl/ldt/sparql",
+			description : {
+				en : "Het Kadaster is houder van de Basisregistratie Kadaster (BRK). Onderdeel van de BRK is de Digitale kadastrale kaart. Deze is beschikbaar als open data en nu ook als Linked Open Data (vooralsnog zonder de topografie)."
+			}
 		}
 
 	},
