@@ -547,7 +547,7 @@ $.jStorage.set('profile', {
 			}
 		},
 		"http://brk.basisregistraties.overheid.nl" : {
-			endpoint : "https://data.pdok.nl/ldt/sparql",
+			endpoint : "https://data.pdok.nl/sparql",
 			description : {
 				en : "Het Kadaster is houder van de Basisregistratie Kadaster (BRK). Onderdeel van de BRK is de Digitale kadastrale kaart. Deze is beschikbaar als open data en nu ook als Linked Open Data (vooralsnog zonder de topografie)."
 			}
