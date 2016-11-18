@@ -13,13 +13,21 @@
 
 var debugOn = false;
 (function($, lodLiveProfile) {
-	$.jsonp.setup({
+  $.ajaxSetup({
+    headers: {
+      Accept: 'application/sparql-results+json; charset=utf-8'
+    },
+		cache : true,
+		pageCache : true,
+		timeout : 30000
+  });
+	/*$.jsonp.setup({
 		cache : true,
 		callbackParameter : 'callback',
 		callback : 'lodlive',
 		pageCache : true,
 		timeout : 30000
-	});
+	});*/
 	var globalInfoPanelMap = {};
 	var globalInnerPageMap = {};
 	var context;
@@ -133,7 +141,7 @@ var debugOn = false;
 		guessingEndpoint : function(uri, onSuccess, onFail) {
 			var base = uri.replace(/(^http:\/\/[^\/]+\/).+/, "$1");
 			var guessedEndpoint = base + "sparql?" + $.jStorage.get('endpoints')['all'] + "&query=" + encodeURIComponent("select * where {?a ?b ?c} LIMIT 1");
-			$.jsonp({
+			$.ajax({
 				url : guessedEndpoint,
 				success : function(data) {
 					if (data && data.results && data.results.bindings[0]) {
@@ -1316,7 +1324,7 @@ var debugOn = false;
 						uriId : URI
 					});
 				}
-				$.jsonp({
+				$.ajax({
 					url : url,
 					beforeSend : function() {
 						$('body').append(destBox);
@@ -1386,7 +1394,7 @@ var debugOn = false;
 				if (SPARQLquery.indexOf("http://system/dummy") == 0) {
 					methods.parseRawResourceDoc(destBox, URI);
 				} else {
-					$.jsonp({
+					$.ajax({
 						url : SPARQLquery,
 						beforeSend : function() {
 							destBox.html('<img style=\"margin-left:' + (destBox.width() / 2) + 'px;margin-top:147px\" src="img/ajax-loader-gray.gif"/>');
@@ -1859,7 +1867,7 @@ var debugOn = false;
 
 			var SPARQLquery = methods.composeQuery(val, 'bnode', URI);
 
-			$.jsonp({
+			$.ajax({
 				url : SPARQLquery,
 				beforeSend : function() {
 					destBox.find('span[class=bnode]').html('<img src="img/ajax-loader-black.gif"/>');
@@ -2583,7 +2591,7 @@ var debugOn = false;
 						uriId : resource
 					});
 				}
-				$.jsonp({
+				$.ajax({
 					url : url,
 					beforeSend : function() {
 						destBox.children('.box').html('<img style=\"margin-top:' + (destBox.children('.box').height() / 2 - 8) + 'px\" src="img/ajax-loader.gif"/>');
@@ -2704,7 +2712,7 @@ var debugOn = false;
 				});
 			} else {
 
-				$.jsonp({
+				$.ajax({
 					url : SPARQLquery,
 					beforeSend : function() {
 						destBox.children('.box').html('<img style=\"margin-top:' + (destBox.children('.box').height() / 2 - 8) + 'px\" src="img/ajax-loader.gif"/>');
@@ -2747,7 +2755,7 @@ var debugOn = false;
 							SPARQLquery = methods.composeQuery(anUri, 'inverse');
 
 							var inverses = [];
-							$.jsonp({
+							$.ajax({
 								url : SPARQLquery,
 								beforeSend : function() {
 									destBox.children('.box').html('<img style=\"margin-top:' + (destBox.children('.box').height() / 2 - 5) + 'px\" src="img/ajax-loader.gif"/>');
@@ -2873,7 +2881,7 @@ var debugOn = false;
 
 			SPARQLquery = methods.composeQuery(SPARQLquery, 'allClasses');
 			var classes = [];
-			$.jsonp({
+			$.ajax({
 				url : SPARQLquery,
 				beforeSend : function() {
 					destBox.html('<img src="img/ajax-loader.gif"/>');
@@ -2935,7 +2943,7 @@ var debugOn = false;
 					if (value.proxy) {
 						SPARQLquery = value.proxy + '?endpoint=' + value.endpoint + "&" + (value.endpointType ? $.jStorage.get('endpoints')[value.endpointType] : $.jStorage.get('endpoints')['all']) + "&query=" + escape(getSparqlConf('inverseSameAs', value, lodLiveProfile).replace(/\{URI\}/g, anUri));
 					}
-					$.jsonp({
+					$.ajax({
 						url : SPARQLquery,
 						timeout : 3000,
 						beforeSend : function() {
@@ -3015,7 +3023,7 @@ var debugOn = false;
 				}
 			});
 			var values = [];
-			$.jsonp({
+			$.ajax({
 				url : SPARQLquery,
 				beforeSend : function() {
 					destBox.html('<img src="img/ajax-loader.gif"/>');
