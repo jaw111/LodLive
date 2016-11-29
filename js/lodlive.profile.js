@@ -4,7 +4,7 @@ $.jStorage.set('profile', {
 		// base degli about dei documenti non dell'ontologia
 		"http://brk.basisregistraties.overheid.nl" : {
 			endpointType : 'ldt',
-			endpoint : "https://data.pdok.nl/sparql",
+			endpoint : "https://data.test.pdok.nl/sparql",
 			description : {
 				nl : "Het Kadaster is houder van de Basisregistratie Kadaster (BRK). Onderdeel van de BRK is de Digitale kadastrale kaart. Deze is beschikbaar als open data en nu ook als Linked Open Data (vooralsnog zonder de topografie)."
 			},
@@ -15,14 +15,14 @@ $.jStorage.set('profile', {
 		},
 		"http://brt.basisregistraties.overheid.nl" : {
 			endpointType : 'ldt',
-			endpoint : "https://data.pdok.nl/sparql",
+			endpoint : "https://data.test.pdok.nl/sparql",
 			description : {
 				nl : "Het Kadaster is houder van de Basisregistratie Topografie (BRT). De BRT bestaat uit digitale topografische bestanden op verschillende schaalniveaus."
 			}
 		},
 		"http://data.pdok.nl" : {
 			endpointType : 'ldt',
-			endpoint : "https://data.pdok.nl/sparql",
+			endpoint : "https://data.test.pdok.nl/sparql",
 			description : {
 				nl : "Maak kennis met de bètaversie van het PDOK Data Platform. Het platform voor Linked Open Geodata."
 			}
