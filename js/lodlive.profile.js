@@ -20,6 +20,13 @@ $.jStorage.set('profile', {
 				nl : "Het Kadaster is houder van de Basisregistratie Topografie (BRT). De BRT bestaat uit digitale topografische bestanden op verschillende schaalniveaus."
 			}
 		},
+		"http://bag.kadaster.nl" : {
+			endpointType : 'ldt',
+			endpoint : "https://data.test.pdok.nl/sparql",
+			description : {
+				nl : "Basis Addressen en Gebouwen."
+			}
+		},
 		"http://data.pdok.nl" : {
 			endpointType : 'ldt',
 			endpoint : "https://data.test.pdok.nl/sparql",
